@@ -4,7 +4,9 @@ This module provides example processors.
 ## Processor: HelloWorld
 This processor sets the node field "helloWorld" in different languages depending on its configuration.
 ## How to compile and generate a module
-- Open the solution "Processors.sln" in Visual Studio and rebuild all projects. 
+- Open the solution "Processors.sln" in Visual Studio
+- Restore nuget packages for solution
+- Rebuild solution 
 - The assembly will be compiled to "output\functions"
 - Copy the content of the "assets" directory to the "output" folder
 - Create a zip file containing the content of the output folder. (functions, images and info.json must be in the root folder of the zip)
