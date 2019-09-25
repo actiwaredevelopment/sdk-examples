@@ -1,0 +1,100 @@
+{
+  "module_id": "{F4DB5851-30D1-4023-B8A5-C51BD15D13BE}",
+  "version": "1.0.0.0",
+  "name": "Example",
+  "display_text": "Example Module",
+  "description": "This module contains example processors.",
+  "language_code": "MOD_EXAMPLE_NAME",
+  "language_code_description": "MOD_EXAMPLE_DESCRIPTION",
+  "icon": {
+    "small": "image:/icons/module/small.png",
+    "medium": "image:/icons/module/medium.png",
+    "large": "image:/icons/module/large.png"
+  },
+  "service_address": "http://localhost:8080",
+  "processors": [
+    {
+      "info": {
+        "id": "{AF5848F2-596D-4BF8-A2F8-C6CE5E4B0AAD}",
+        "icon": {
+          "small": "image:/icons/processor/hello-world-small.png",
+          "medium": "image:/icons/processor/hello-world-medium.png",
+          "large": "image:/icons/processor/hello-world-large.png"
+        },
+        "name": "HelloWorld",
+        "version": "1.0.0.0",
+        "display_text": "Hello World",
+        "description": "This processor executes produces hello world in different languages",
+        "language_code": "MOD_EXAMPLE_HELLO_WORLD_NAME",
+        "language_code_description": "MOD_EXAMPLE_HELLO_WORLD_DESC"
+      },
+      "input_ports": [
+        {
+          "id": "input",
+          "name": "Input",
+          "description": "",
+          "language_code": "MOD_EXAMPLE_INPUT_PORT_NAME",
+          "language_code_description": "MOD_EXAMPLE_INPUT_PORT_DESC"
+        }
+      ],
+      "output_ports": [
+        {
+          "id": "output",
+          "name": "Output",
+          "description": "",
+          "language_code": "MOD_EXAMPLE_OUTPUT_PORT_NAME",
+          "language_code_description": "MOD_EXAMPLE_OUTPUT_PORT_DESC"
+        }
+      ],
+      "routes": {
+        "config": [
+          {
+            "function": "LOAD",
+            "type": "json",
+            "json": [
+              {
+                "name": "General",
+                "language_code": "MOD_EXAMPLE_GENERAL_TAB",
+                "controls": [
+                  {
+                    "name": "language",
+                    "display_text": "Language",
+                    "description": "The language to out output hello world in",
+                    "language_code": "MOD_EXAMPLE_HELLO_WORLD_LANGUAGE_NAME",
+                    "language_code_description": "MOD_EXAMPLE_HELLO_WORLD_LANGUAGE_DESC",
+                    "type": "Textbox",
+                    "options": {
+                      "required": "true",
+                      "item_selection_only": "true",
+                      "support_syntax_fields":  "true"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "execution": [
+          {
+            "function": "EXECUTE",
+            "type": "native",
+            "native": {
+              "library": "Example.HelloWorld.dll",
+              "namespace": "Example.HelloWorld",
+              "class": "Processor"
+            }
+          },
+          {
+            "function": "TEST",
+            "type": "native",
+            "native": {
+              "library": "Example.HelloWorld.dll",
+              "namespace": "Example.HelloWorld",
+              "class": "Processor"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
