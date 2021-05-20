@@ -1,0 +1,18 @@
+{
+	"culture_info": "en-US",
+	"text": {
+		"MODULE_TITLE": "Demo",
+		"MODULE_DESCRIPTION": "This is an example description.",
+		"PROCESSOR_DEMO_TITLE": "Demo Processor",
+		"PROCESSOR_DEMO_DESCRIPTION": "This is an example description.",
+		"LABEL_CONFIG_1": "Config 1",
+		"LABEL_CONFIG_2": "Config 2",
+		"LABEL_CONFIG_3": "Config 3",
+		"VALIDATE_CONFIG_1_NO_NAME": "You must specify a name for the config 1",
+		"VALIDATE_CONFIG_2_NO_NAME": "You must specify a name for the config 2",
+		"VALIDATE_CONFIG_3_NO_NAME": "You must specify a name for the config 3"
+	},
+	"variable": {},
+	"exception": {},
+	"message": {}
+}

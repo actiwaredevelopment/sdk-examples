@@ -1,0 +1,132 @@
+{
+    "module_id": "11111111-1111-1111-1111-111111111111",
+    "version": "1.0.0.preview",
+    "name": "Demo",
+    "display_text": "Demo",
+    "description": "This is an example description.",
+    "language_code": "MODULE_TITLE",
+    "language_code_description": "MODULE_DESCRIPTION",
+    "icon": {
+      "small": "font:square",
+      "medium": "font:square",
+      "large": "font:square"
+    },
+    "service_address": ":40000",
+    "processors": [
+      {
+        "info": {
+          "id": "11111111-1111-1111-1111-111111111111",
+          "icon": {
+            "small": "font:square",
+            "medium": "font:square",
+            "large": "font:square"
+          },
+          "name": "DemoProcessor",
+          "version": "1.0.0",
+          "display_text": "Demo Processor",
+          "description": "This is an example description.",
+          "language_code": "PROCESSOR_DEMO_TITLE",
+          "language_code_description": "PROCESSOR_DEMO_DESCRIPTION"
+        },
+        "input_ports": [
+          {
+            "id": "input",
+            "name": "Input"
+          }
+        ],
+        "output_ports": [
+          {
+            "id": "output",
+            "name": "Output"
+          }
+        ],
+        "routes": {
+          "config": [
+            {
+              "function": "LOAD",
+              "type": "website",
+              "website": {
+                "url": "/api/v1/processor/demo/config"
+              }
+            },
+            {
+              "function": "SAVE",
+              "type": "website",
+              "website": {
+                "url": "/api/v1/processor/demo/config",
+                "js_function": "saveProcessorDemoConfig"
+              }
+            },
+            {
+              "function": "VALIDATE",
+              "type": "http",
+              "http": {
+                "method": "POST",
+                "url": "/api/v1/processor/demo/config/validate"
+              }
+            },
+            {
+              "function": "GET_USED_ITEMS",
+              "type": "http",
+              "http": {
+                "method": "POST",
+                "url": "/api/v1/processor/demo/config/items"
+              }
+            }
+          ],
+          "execution": [
+            {
+              "function": "EXECUTE",
+              "type": "http",
+              "http": {
+                "method": "POST",
+                "url": "/api/v1/processor/demo/execute"
+              }
+            },
+            {
+              "function": "TEST",
+              "type": "http",
+              "http": {
+                "method": "POST",
+                "url": "/api/v1/processor/demo/test"
+              }
+            }
+          ],
+          "analytics": [
+            {
+              "function": "COLLECT_REFERENCES",
+              "type": "http",
+              "http": {
+                "method": "POST",
+                "url": "/api/v1/processor/demo/analytics/collect"
+              }
+            },
+            {
+              "function": "INSPECT",
+              "type": "http",
+              "http": {
+                "method": "POST",
+                "url": "/api/v1/processor/demo/analytics/inspect"
+              }
+            },
+            {
+              "function": "GENERATE_DOCUMENTATION",
+              "type": "http",
+              "http": {
+                "method": "POST",
+                "url": "/api/v1/processor/demo/analytics/documentation"
+              }
+            },
+            {
+              "function": "DEPENDENCIES",
+              "type": "http",
+              "http": {
+                "method": "POST",
+                "url": "/api/v1/processor/demo/analytics/dependencies"
+              }
+            }
+          ]
+        }
+      }
+    ]
+}
